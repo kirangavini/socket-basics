@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/public'));
 io.on('connection', function (socket) {
   console.log('User connected via socket.io');  
 
-  socket.on('message', function () {
+  socket.on('message', function (message) {
      console.log('Message Recieved' + message.text);  
        
      socket.broadcast.emit('message', message);
